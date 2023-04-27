@@ -44,17 +44,13 @@ jobs:
           # Build/install umoci
           echo "Printing GO version "
           go version
-          go help vcs
-          #go build -buildvcs=false
           GOPATH=$HOME/go
-          #go install github.com/opencontainers/umoci
-          #go install github.com/opencontainers/umoci@latest
+          echo $GOPATH
           echo $pwd
           echo $(ls)
           find $HOME/ -type d -name "umoci"
-          go mod init
+          go mod init github.com/opencontainers/umoci@latest
           go mod download github.com/opencontainers/umoci@latest
-          echo $GOPATH
           cd $GOPATH/src/github.com/opencontainers/umoci/
           echo $(ls)
           make
