@@ -49,7 +49,7 @@ jobs:
           echo $pwd
           echo $(ls)
           find $HOME/ -type d -name "umoci"
-          go mod init github.com/opencontainers/umoci@latest
+          go mod init github.com/opencontainers/umoci
           go mod download github.com/opencontainers/umoci@latest
           cd $GOPATH/src/github.com/opencontainers/umoci/
           echo $(ls)
