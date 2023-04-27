@@ -44,16 +44,18 @@ jobs:
           # Build/install umoci
           echo "Printing GO version "
           go version
+          go help
+          go build -buildvcs=false
           GOPATH=$HOME/go
           #go install github.com/opencontainers/umoci
           #go install github.com/opencontainers/umoci@latest
           go mod download github.com/opencontainers/umoci@latest
-          echo $GOPATH
-          cd $GOPATH/src/github.com/opencontainers/umoci/
-          echo $(ls)
-          make
-          sudo make install
-          echo 'Finished Job of UMOCI'
+          #echo $GOPATH
+          #cd $GOPATH/src/github.com/opencontainers/umoci/
+          #echo $(ls)
+          #make
+          #sudo make install
+          #echo 'Finished Job of UMOCI'
 
       - name: Run the unit test
         working-directory: ./Bundlegen/unit_tests/L1_testing
