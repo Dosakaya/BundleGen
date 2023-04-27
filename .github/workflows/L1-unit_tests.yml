@@ -46,7 +46,8 @@ jobs:
           go version
           GOPATH=$HOME/go
           #go install github.com/opencontainers/umoci
-          go install github.com/opencontainers/umoci@latest
+          #go install github.com/opencontainers/umoci@latest
+          go mod download github.com/opencontainers/umoci@latest
           echo $GOPATH
           cd $GOPATH/src/github.com/opencontainers/umoci/
           echo $(ls)
