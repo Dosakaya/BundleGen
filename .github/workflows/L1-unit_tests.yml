@@ -51,6 +51,7 @@ jobs:
           #go install github.com/opencontainers/umoci@latest
           echo $pwd
           echo $(ls)
+          find $HOME/ -type d -name "umoci"
           go mod init
           go mod download github.com/opencontainers/umoci@latest
           echo $GOPATH
