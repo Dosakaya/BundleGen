@@ -45,7 +45,7 @@ jobs:
           echo "Printing GO version "
           go version
           GOPATH=$HOME/go
-          go install -d github.com/opencontainers/umoci
+          go install github.com/opencontainers/umoci
           echo $GOPATH
           cd $GOPATH/src/github.com/opencontainers/umoci/
           echo $(ls)
