@@ -41,7 +41,7 @@ jobs:
           sudo apt update
           sudo apt upgrade
           sudo apt install -y make git go-md2man
-          Build/install umoci
+          #Build/install umoci
           echo "Printing GO version "
           go version
           GOPATH=$HOME/go
