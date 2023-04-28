@@ -25,7 +25,8 @@ print("=====test files=======")
 os.chdir("../../../")
 print(os.getcwd())
 print(os.listdir(os.getcwd()))
-from unit_tests.L1_testing import get_L1_test_results
+import unit_tests.L1_testing
+#from unit_tests.L1_testing import get_L1_test_results
 from bundlegen.core.bundle_processor import BundleProcessor
 from bundlegen.core.library_matching import LibraryMatching
 from loguru import logger
