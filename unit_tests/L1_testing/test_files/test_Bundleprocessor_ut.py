@@ -2781,7 +2781,7 @@ class TestBundleProcessor(unittest.TestCase):
                 {'source': '/lib/libnsl.so.1', 'destination': '/lib/libnsl.so.1', 'type': 'bind', 'options': ['rbind', 'nosuid', 'nodev', 'ro']}]}
 
         self.assertEqual(processor.oci_config, expected)
-'''
+    '''
     def test_oci_image_download(self):
         logger.debug("-->checking the image is been downloaded ")
         img_downloader = ImageDownloader()
@@ -2918,7 +2918,7 @@ class TestBundleProcessor(unittest.TestCase):
         command = "umoci unpack --rootless --image /tmp/bundlegen/20230331-112041_ae6ca9eeab67494e9cec8b206bcef66b:latest ./BundleGen/dac-image-wayland-egl-test-bundle"
         expected = Utils.run_process_and_return_output(command)
         self.assertEqual((1, ''), expected)
-'''
+    '''
     def test_to_create_ipk_file(self):
         logger.debug("-->checking to create the ipk file ")
         source = "./test_data_files/dac-image-wayland-egl-test-bundle"
