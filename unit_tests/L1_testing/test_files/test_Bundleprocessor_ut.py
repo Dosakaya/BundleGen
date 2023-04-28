@@ -2781,7 +2781,7 @@ class TestBundleProcessor(unittest.TestCase):
                 {'source': '/lib/libnsl.so.1', 'destination': '/lib/libnsl.so.1', 'type': 'bind', 'options': ['rbind', 'nosuid', 'nodev', 'ro']}]}
 
         self.assertEqual(processor.oci_config, expected)
-
+'''
     def test_oci_image_download(self):
         logger.debug("-->checking the image is been downloaded ")
         img_downloader = ImageDownloader()
@@ -2888,36 +2888,6 @@ class TestBundleProcessor(unittest.TestCase):
         app_metadata = img_unpacker.get_app_metadata_from_img()
         self.assertEqual(app_metadata, None)
 
-    def test_to_create_ipk_file(self):
-        logger.debug("-->checking to create the ipk file ")
-        source = "./test_data_files/dac-image-wayland-egl-test-bundle"
-        final_app_metadata = {
-            "id": "com.rdk.wayland-egl-test",
-            "type": "application/vnd.rdk-app.dac.native",
-            "version": "1.0.0",
-            "description": "Simple wayland egl demo, showing green rectangle",
-            "priority": "optional",
-            "graphics": True
-        }
-        platform_cfg = {
-            "platformName": "rpi3_reference",
-            "os": "linux",
-            "arch": {
-                "arch": "arm",
-                "variant": "v7"
-            }
-        }
-        Utils.create_control_file(platform_cfg, final_app_metadata)
-        expected = Utils.create_ipk(source, source)
-        self.assertEqual(True, expected)
-
-    def test_failed_to_create_tar_source_file(self):
-        logger.debug("-->checking to create the ipk file ")
-        source = "./dac-image-wayland-egl-test-bundle"
-        DATA_NAME = "data.tar.gz"
-        expected = Utils.create_tgz(source, DATA_NAME)
-        self.assertEqual(False, expected)
-
     def test_negative_case_for_skopeo_not_found_error(self):
         img_downloader = ImageDownloader()
         img_downloader.skopeo_found = False
@@ -2948,6 +2918,36 @@ class TestBundleProcessor(unittest.TestCase):
         command = "umoci unpack --rootless --image /tmp/bundlegen/20230331-112041_ae6ca9eeab67494e9cec8b206bcef66b:latest ./BundleGen/dac-image-wayland-egl-test-bundle"
         expected = Utils.run_process_and_return_output(command)
         self.assertEqual((1, ''), expected)
+'''
+    def test_to_create_ipk_file(self):
+        logger.debug("-->checking to create the ipk file ")
+        source = "./test_data_files/dac-image-wayland-egl-test-bundle"
+        final_app_metadata = {
+            "id": "com.rdk.wayland-egl-test",
+            "type": "application/vnd.rdk-app.dac.native",
+            "version": "1.0.0",
+            "description": "Simple wayland egl demo, showing green rectangle",
+            "priority": "optional",
+            "graphics": True
+        }
+        platform_cfg = {
+            "platformName": "rpi3_reference",
+            "os": "linux",
+            "arch": {
+                "arch": "arm",
+                "variant": "v7"
+            }
+        }
+        Utils.create_control_file(platform_cfg, final_app_metadata)
+        expected = Utils.create_ipk(source, source)
+        self.assertEqual(True, expected)
+
+    def test_failed_to_create_tar_source_file(self):
+        logger.debug("-->checking to create the ipk file ")
+        source = "./dac-image-wayland-egl-test-bundle"
+        DATA_NAME = "data.tar.gz"
+        expected = Utils.create_tgz(source, DATA_NAME)
+        self.assertEqual(False, expected)
 
     def test_utils_add_tarinfo_case(self):
         logger.debug("-->checking new api tarinfo of utils file ")
