@@ -68,7 +68,8 @@ jobs:
         run: |
             echo "====chandu====="
             echo $(pwd)
-            python run_L1_test.py -c coverage_report
+            #python run_L1_test.py -c coverage_report
+            python run_L1_test.py
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
