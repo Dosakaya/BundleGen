@@ -47,12 +47,15 @@ jobs:
           GOPATH=$HOME/go
           echo $GOPATH
           echo $(ls)
-          go get -d github.com/opencontainers/umoci
+          #go get -d github.com/opencontainers/umoci
+          go mod download github.com/opencontainers/umoci
           echo $GOPATH
-          cd $GOPATH/src/github.com/opencontainers/umoci/
+          find $HOME/ -type d -name "umoci"
+          #cd $GOPATH/src/github.com/opencontainers/umoci/
+          cd $GOPATH/pkg/mod/github.com/opencontainers/umoci/
           echo $(ls)
-          #make
-          #sudo make install
+          make
+          sudo make install
           echo 'Finished Job of UMOCI'
 
       - name: Run the unit test
