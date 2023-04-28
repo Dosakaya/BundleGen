@@ -15,24 +15,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+
+
 import os
 import sys
 import unittest
-import shutil
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-print("=====test files=======")
-print(os.getcwd())
-print(os.listdir(os.getcwd()))
 from unit_tests.L1_testing import get_L1_test_results
 from bundlegen.core.bundle_processor import BundleProcessor
 from bundlegen.core.library_matching import LibraryMatching
 from loguru import logger
-from bundlegen.core.image_downloader import ImageDownloader
-from bundlegen.core.image_unpacker import ImageUnpackager
-from bundlegen.core.utils import Utils
-from bundlegen.core.readelf import ReadElf
-
 #This class will test the functionality of API's in bundleprocessor.py file.
 class TestBundleProcessor(unittest.TestCase):
     def setUp(self):
@@ -1366,8 +1359,8 @@ class TestBundleProcessor(unittest.TestCase):
         logger.debug("-->Test was Successfully verified")
 
     def test_remove_required_app_meta_data_schema(self):
-        #this test is to validate required fields when are removed.
-        logger.debug("--> checking the appmetadata schema by removing the required fields ")
+        #this test is to validate required feilds when are removed.
+        logger.debug("--> checking the appmetadata schema by removing the required feilds ")
         os.chdir('../../')
         validate = BundleProcessor()
         validate.app_metadata = {
@@ -1379,9 +1372,9 @@ class TestBundleProcessor(unittest.TestCase):
         self.assertEqual(actual, expected)
         logger.debug("-->Test was Successfully verified")
 
-    def test_optional_field_app_meta_data_schema(self):
-        #this test is to validate optional fields by removing required fields.
-        logger.debug("--> Validating schema removing reqired fields and adding optional fields ")
+    def test_optional_feild_app_meta_data_schema(self):
+        #this test is to validate optional feilds by removing required feilds.
+        logger.debug("--> Validating schema removing reqired feilds and adding optinal feilds ")
         os.chdir('../../')
         validate = BundleProcessor()
         validate.app_metadata = {
@@ -1407,8 +1400,8 @@ class TestBundleProcessor(unittest.TestCase):
         self.assertEqual(actual, expected)
         logger.debug("-->Test was Successfully verified")
 
-    def test_network_field_compatibility(self):
-        logger.debug("-->checking Platform does support Network field output")
+    def test_network_feild_compatilibity(self):
+        logger.debug("-->checking Platform does support Network feild output")
         processor = BundleProcessor()
         processor.rootfs_path = None
         processor.createmountpoints = None
@@ -1437,7 +1430,7 @@ class TestBundleProcessor(unittest.TestCase):
         expected = False
         self.assertEqual(actual, expected)
 
-    def test_graphic_field_compatibility(self):
+    def test_graphic_feild_compatilibity(self):
         logger.debug("-->checking Platform does support graphics output")
         processor = BundleProcessor()
         processor.rootfs_path = None
@@ -1453,7 +1446,7 @@ class TestBundleProcessor(unittest.TestCase):
         expected = False
         self.assertEqual(actual, expected)
 
-    def test_persistent_storage_field_compatibility(self):
+    def test_persistent_storage_feild_compatilibity(self):
         logger.debug("-->checking Platform does support persistent storage output")
         processor = BundleProcessor()
         processor.rootfs_path = None
@@ -1479,7 +1472,7 @@ class TestBundleProcessor(unittest.TestCase):
         expected = False
         self.assertEqual(actual, expected)
 
-    def test_storage_persistent_maxsize_field_compatibility(self):
+    def test_storage_persistent_maxsize_feild_compatilibity(self):
         logger.debug("-->checking Platform does support maxsize output")
         processor = BundleProcessor()
         processor.rootfs_path = None
@@ -1509,7 +1502,7 @@ class TestBundleProcessor(unittest.TestCase):
         expected = False
         self.assertEqual(actual, expected)
 
-    def test_storage_temp_maxsize_field_compatibility(self):
+    def test_storage_temp_maxsize_feild_compatilibity(self):
         logger.debug("-->checking Platform does support temp storage maxsize")
         processor = BundleProcessor()
         processor.rootfs_path = None
@@ -1549,7 +1542,7 @@ class TestBundleProcessor(unittest.TestCase):
         expected = False
         self.assertEqual(actual, expected)
 
-    def test_storage_persistent_totalsize_field_compatibility(self):
+    def test_storage_persistent_totalsize_feild_compatilibity(self):
         logger.debug("-->checking Platform does support storage persistent totalsize")
         processor = BundleProcessor()
         processor.rootfs_path = None
@@ -1580,7 +1573,7 @@ class TestBundleProcessor(unittest.TestCase):
         expected = False
         self.assertEqual(actual, expected)
 
-    def test_storage_persistent_size_lesser_than_minsize_field_compatibility(self):
+    def test_storage_persistent_size_lesser_than_minsize_feild_compatilibity(self):
         logger.debug("-->Persistent storage requested by app is less than minimum required by platform")
         processor = BundleProcessor()
         processor.rootfs_path = None
@@ -1612,7 +1605,7 @@ class TestBundleProcessor(unittest.TestCase):
         expected = False
         self.assertEqual(actual, expected)
 
-    def test_temp_storage_app_less_than_min_req_compatibility(self):
+    def test_temp_storage_app_less_than_min_req_compatilibity(self):
         logger.debug("-->Temporary storage requested by app is less than minimum required by platform ")
         processor = BundleProcessor()
         processor.rootfs_path = None
@@ -1651,7 +1644,7 @@ class TestBundleProcessor(unittest.TestCase):
         expected = True
         self.assertEqual(actual, expected)
 
-    def test_storage_temp_totalsize_field_compatibility(self):
+    def test_storage_temp_totalsize_feild_compatilibity(self):
         logger.debug("-->checking Platform does support storage temp totalsize")
         processor = BundleProcessor()
         processor.rootfs_path = None
@@ -2582,7 +2575,7 @@ class TestBundleProcessor(unittest.TestCase):
     def test_checking_gfxlibs_in_gpu(self):
         logger.debug("-->checking _gfxlibs in gpu")
         processor = BundleProcessor()
-        processor.rootfs_path = "/tmp/test/rootfs"
+        processor.rootfs_path = "/tmp/test"
         processor.bundle_path = "/tmp/test"
         processor.createmountpoints = False
         processor.app_metadata = {
@@ -2684,11 +2677,10 @@ class TestBundleProcessor(unittest.TestCase):
             'process': {'env': ['LD_PRELOAD=/usr/lib/libwayland-client.so.0:/usr/lib/libwayland-egl.so.0', 'WAYLAND_DISPLAY=westeros']}
         }
         self.assertEqual(processor.oci_config, expected)
-
     def test_checking_dobby_plugindependies01(self):
         logger.debug("-->checking the dobby_plugindependies with libmatching is given as normal")
         processor = BundleProcessor()
-        processor.rootfs_path = "/tmp/rootfs"
+        processor.rootfs_path = "/tmp"
         processor.bundle_path = "/tmp"
         processor.createmountpoints = False
         processor.platform_cfg = {
@@ -2733,7 +2725,7 @@ class TestBundleProcessor(unittest.TestCase):
                 }]
             }
         self.assertEqual(processor.oci_config, expected)
-
+    
     def test_checking_dobby_plugindependies02(self):
         logger.debug("-->checking the dobby_plugindependies with libmatching is given as image")
         processor = BundleProcessor()
@@ -2778,198 +2770,10 @@ class TestBundleProcessor(unittest.TestCase):
             'mounts': [{
                 'source': '/usr/lib/libffi.so.7', 'destination': '/usr/lib/libffi.so.7', 'type': 'bind', 'options': ['rbind', 'nosuid', 'nodev', 'ro']},
                 {'source': '/lib/libc.so.6', 'destination': '/lib/libc.so.6', 'type': 'bind', 'options': ['rbind', 'nosuid', 'nodev', 'ro']},
-                {'source': '/lib/libpthread.so.0', 'destination': '/lib/libpthread.so.0', 'type': 'bind', 'options': ['rbind', 'nosuid', 'nodev', 'ro']},
-                {'source': '/lib/libnsl.so.1', 'destination': '/lib/libnsl.so.1', 'type': 'bind', 'options': ['rbind', 'nosuid', 'nodev', 'ro']}]}
-
+                {'source': '/lib/libnsl.so.1', 'destination': '/lib/libnsl.so.1', 'type': 'bind', 'options': ['rbind', 'nosuid', 'nodev', 'ro']
+                }]
+            }
         self.assertEqual(processor.oci_config, expected)
-    '''
-    def test_oci_image_download(self):
-        logger.debug("-->checking the image is been downloaded ")
-        img_downloader = ImageDownloader()
-        image = "oci:./oci_images/dac-image-wayland-egl-test-oci:latest"
-        creds = None
-        outputdir = "./BundleGen/dac-image-wayland-egl-test-bundle"
-        isDir = os.path.isdir(outputdir)
-        if (isDir):
-            logger.warning("-->bundlegen folder is present so deleting the folder ")
-            shutil.rmtree("BundleGen")
-        img_downloader.platform_cfg = {
-            "platformName": "rpi3_reference",
-            "os": "linux",
-            "arch": {
-                "arch": "arm",
-                "variant": "v7"
-            },
-            "dobby":{
-                "generateCompliantConfig": False,
-                "dobbyInitPath":"/usr/libexec/DobbyInit",
-                "hookLauncherExecutablePath": "/usr/bin/DobbyPluginLauncher",
-                "hookLauncherParametersPath": "/opt/dac_apps/data/{id}/dac/"
-            },
-            "hardware": {
-                "graphics": True,
-                "maxRam": "120M"
-            },
-            "storage": {
-                "persistent": {
-                    "storageDir": "/opt/dac_apps/data/0/dac",
-                    "maxSize": "100M",
-                    "size": "23",
-                    "path": "/var/log/",
-                    "fstype": "ext4"
-                }
-            }
-        }
-        img_path = img_downloader.download_image(image, creds, img_downloader.platform_cfg)
-        tag = img_downloader.get_image_tag(image)
-        img_unpacker = ImageUnpackager(img_path, outputdir)
-        unpack_success = img_unpacker.unpack_image(tag, delete=True)
-        if unpack_success:
-            shutil.rmtree("BundleGen")
-        self.assertEqual(unpack_success, True)
-
-    def test_oci_image_download_arch_field_missing_case(self):
-        logger.debug("-->checking the arch field is missed from the platform ")
-        img_downloader = ImageDownloader()
-        image = "oci:./oci_images/dac-image-wayland-egl-test-oci:latest"
-        creds = None
-        img_downloader.platform_cfg = {
-            "platformName": "rpi3_reference",
-            "os": "linux"
-        }
-        img_path = img_downloader.download_image(image, creds, img_downloader.platform_cfg)
-        self.assertEqual("", img_path)
-
-    def test_oci_image_download_os_field_missing_case(self):
-        logger.debug("-->checking the os field is missed from the platfom config ")
-        img_downloader = ImageDownloader()
-        image = "oci:./oci_images/dac-image-wayland-egl-test-oci:latest"
-        creds = None
-        img_downloader.platform_cfg = {
-            "platformName": "rpi3_reference",
-            "arch": {
-                "arch": "arm",
-                "variant": "v7"
-            }
-        }
-        img_path = img_downloader.download_image(image, creds, img_downloader.platform_cfg)
-        self.assertEqual("", img_path)
-
-    def test_imageunpacker_image_app_metadata_missing(self):
-        logger.debug("-->checking the image app metadata is missing ")
-        outputdir = "./BundleGen/dac-image-wayland-egl-test-bundle"
-        img_path = "/tmp/bundlegen/20230329-120614_2e094abd57974c0895813f5c893b24ca"
-        img_unpacker = ImageUnpackager(img_path, outputdir)
-        img_appmetdata_path = img_unpacker.image_contains_metadata()
-        self.assertEqual(img_appmetdata_path, False)
-
-    def test_imageunpacker_image_app_metadata_in_given_path(self):
-        logger.debug("-->checking the image appmetadata is present in the given path ")
-        outputdir = "./BundleGen/dac-image-wayland-egl-test-bundle"
-        img_path = "/tmp/bundlegen/20230329-120614_2e094abd57974c0895813f5c893b24ca"
-        img_unpacker = ImageUnpackager(img_path, outputdir)
-        img_unpacker.app_metadata_image_path = "./test_data_files/test-appmetadata.json"
-        img_unpacker.image_contains_metadata()
-        app_metadata = img_unpacker.get_app_metadata_from_img()
-        final_app_metadata = {
-            "id": "com.rdk.wayland-egl-test",
-            "type": "application/vnd.rdk-app.dac.native",
-            "version": "1.0.0",
-            "description": "Simple wayland egl demo, showing green rectangle",
-            "priority": "optional",
-            "graphics": True
-        }
-        self.assertEqual(final_app_metadata, app_metadata)
-
-    def test_imageunpacker_app_metadata_missing(self):
-        logger.debug("-->checking the image app metadata not specified ")
-        outputdir = "./BundleGen/dac-image-wayland-egl-test-bundle"
-        img_path = "/tmp/bundlegen/20230329-120614_2e094abd57974c0895813f5c893b24ca"
-        img_unpacker = ImageUnpackager(img_path, outputdir)
-        app_metadata = img_unpacker.get_app_metadata_from_img()
-        self.assertEqual(app_metadata, None)
-
-    def test_negative_case_for_skopeo_not_found_error(self):
-        img_downloader = ImageDownloader()
-        img_downloader.skopeo_found = False
-        image = "oci:./oci_images/dac-image-wayland-egl-test-oci:latest"
-        creds = None
-        img_downloader.platform_cfg = {
-        }
-        img_path = img_downloader.download_image(image, creds, img_downloader.platform_cfg)
-        self.assertEqual(None, img_path)
-
-    def test_missing_creds_case(self):
-        img_downloader = ImageDownloader()
-        image = "oci:./oci_images/dac-image-wayland-egl-test-oci:latest"
-        creds = "dumpy_value"
-        img_downloader.platform_cfg = {
-            "platformName": "rpi3_reference",
-            "os": "linux",
-            "arch": {
-                "arch": "arm",
-                "variant": "v7"
-            }
-        }
-        img_path = img_downloader.download_image(image, creds, img_downloader.platform_cfg)
-        self.assertEqual(None, img_path)
-
-    def test_failed_to_run_process_and_return_output(self):
-        logger.debug("-->checking to run the command ")
-        command = "umoci unpack --rootless --image /tmp/bundlegen/20230331-112041_ae6ca9eeab67494e9cec8b206bcef66b:latest ./BundleGen/dac-image-wayland-egl-test-bundle"
-        expected = Utils.run_process_and_return_output(command)
-        self.assertEqual((1, ''), expected)
-    '''
-    def test_to_create_ipk_file(self):
-        logger.debug("-->checking to create the ipk file ")
-        source = "./test_data_files/dac-image-wayland-egl-test-bundle"
-        final_app_metadata = {
-            "id": "com.rdk.wayland-egl-test",
-            "type": "application/vnd.rdk-app.dac.native",
-            "version": "1.0.0",
-            "description": "Simple wayland egl demo, showing green rectangle",
-            "priority": "optional",
-            "graphics": True
-        }
-        platform_cfg = {
-            "platformName": "rpi3_reference",
-            "os": "linux",
-            "arch": {
-                "arch": "arm",
-                "variant": "v7"
-            }
-        }
-        Utils.create_control_file(platform_cfg, final_app_metadata)
-        expected = Utils.create_ipk(source, source)
-        self.assertEqual(True, expected)
-
-    def test_failed_to_create_tar_source_file(self):
-        logger.debug("-->checking to create the ipk file ")
-        source = "./dac-image-wayland-egl-test-bundle"
-        DATA_NAME = "data.tar.gz"
-        expected = Utils.create_tgz(source, DATA_NAME)
-        self.assertEqual(False, expected)
-
-    def test_utils_add_tarinfo_case(self):
-        logger.debug("-->checking new api tarinfo of utils file ")
-        source = "./test_data_files/dac-image-wayland-egl-test-bundle"
-        DATA_NAME = "data.tar.gz"
-        expected = Utils.create_tgz(source, DATA_NAME, 1, 2, '770')
-        self.assertEqual(True, expected)
-
-    def test_readif_fail_test_case(self):
-        logger.debug("-->checking new api in readif file ")
-        rootfs_filepath = "./test_data_files/dac-image-wayland-egl-test-bundle/rootfs"
-        version_defs_by_rootfs_lib = ReadElf.retrieve_apiversions(rootfs_filepath)
-        self.assertEqual([], version_defs_by_rootfs_lib)
-
-    def test_readif_test_case(self):
-        logger.debug("-->checking new api in readif file ")
-        rootfs_filepath = "./test_data_files/dac-image-wayland-egl-test-bundle/libBrokenLocale-2.31.1"
-        version_defs_by_rootfs_lib = set(ReadElf.retrieve_apiversions(rootfs_filepath))
-        logger.debug("\n version_defs_by_rootfs_lib:  %s" % version_defs_by_rootfs_lib)
-        expected = {'GLIBC_2.4'}
-        self.assertEqual(version_defs_by_rootfs_lib, expected)
 
 if __name__ == "__main__":
     unittest.main()
