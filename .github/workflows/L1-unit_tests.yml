@@ -32,33 +32,33 @@ jobs:
              pip install --editable Bundlegen/
              pip install coverage
 
-      - name: Setup umoci
-        uses: actions/setup-go@v3
-        with:
-          go-version: '1.18'
-          check-latest: true
-      - run: |
-          sudo apt update
-          sudo apt upgrade
-          sudo apt install -y make git go-md2man
+      #- name: Setup umoci
+       # uses: actions/setup-go@v3
+       # with:
+        #  go-version: '1.18'
+         # check-latest: true
+      #- run: |
+       #   sudo apt update
+        #  sudo apt upgrade
+         # sudo apt install -y make git go-md2man
           # Build/install umoci
-          echo "Printing GO version "
-          go version
-          GOPATH=$HOME/go
-          echo $GOPATH
-          echo $(ls)
-          go install github.com/opencontainers/umoci@latest
+          #echo "Printing GO version "
+          #go version
+          #GOPATH=$HOME/go
+          #echo $GOPATH
+          #echo $(ls)
+          #go install github.com/opencontainers/umoci@latest
           #go mod init github.com/opencontainers/umoci
           #go mod download github.com/opencontainers/umoci@latest
-          find $HOME/ -type d -name "umoci"
-          cd $GOPATH/
-          echo $(ls)
-          cd $GOPATH/src/github.com
-          echo $(ls)
+          #find $HOME/ -type d -name "umoci"
+          #cd $GOPATH/
+          #echo $(ls)
+          #cd $GOPATH/src/github.com
+          #echo $(ls)
           #cd $GOPATH/src/github.com/opencontainers/umoci/
           #/home/runner/go/pkg/mod/cache/download/github.com/opencontainers/umoci
-          cd $GOPATH/pkg/mod/github.com/opencontainers/umoci@v0.4.7/cmd/umoci
-          echo $(ls)
+          #cd $GOPATH/pkg/mod/github.com/opencontainers/umoci@v0.4.7/cmd/umoci
+          #echo $(ls)
           #make
           #sudo make install
           #echo 'Finished Job of UMOCI'
