@@ -60,9 +60,10 @@ jobs:
           cat go.mod
           echo "download is complete"
           echo $(ls)
+          find $HOME/ -type d -name "umoci"
           cd $GOPATH/src/github.com/opencontainers/umoci/
           echo $(ls)
-          find $HOME/ -type d -name "umoci"
+          #find $HOME/ -type d -name "umoci"
           echo "printing the find path"
           make
           sudo make install
