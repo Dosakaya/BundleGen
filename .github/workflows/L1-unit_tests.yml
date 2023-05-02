@@ -54,7 +54,10 @@ jobs:
           find $HOME/ -type d -name "apex"
           cd $GOPATH/pkg/mod/github.com
           echo $(ls)
-          cd $GOPATH/pkg/mod/github.com/opencontainers/umoci@v0.4.7
+          #cd $GOPATH/pkg/mod/github.com/opencontainers/umoci@v0.4.7
+          cd $GOPATH/pkg/mod/github.com/opencontainers
+          echo $(ls)
+          mv umoci@* umoci
           echo $(ls)
           make
           sudo make install
