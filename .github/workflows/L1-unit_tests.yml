@@ -51,7 +51,8 @@ jobs:
           go mod init umoci_module
           go get -d github.com/opencontainers/umoci
           cat go.mod
-          cd $GOPATH/pkg/mod/github.com/opencontainers/umoci@v0.4.7/
+          cd $GOPATH/pkg/mod/github.com/opencontainers/umoci@v0.4.7
+          echo $(ls)
           make
           sudo make install
           echo 'Finished Job of UMOCI'
