@@ -58,6 +58,7 @@ jobs:
           cd $GOPATH/pkg/mod/github.com/opencontainers
           echo $(ls)
           mv umoci@* umoci
+          cd $GOPATH/pkg/mod/github.com/opencontainers/umoci
           echo $(ls)
           make
           sudo make install
