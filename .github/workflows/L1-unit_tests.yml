@@ -35,7 +35,7 @@ jobs:
       - name: Setup umoci
         uses: actions/setup-go@v3
         with:
-          go-version: '1.13'
+          go-version: '1.18'
           check-latest: true
       - run: |
           sudo apt update
@@ -49,9 +49,10 @@ jobs:
           mkdir umoci_module
           echo $(ls)
           echo "lets print tha go.mod file"
-          cat go.mod
           echo "printed tha go.mod file"
           go mod init umoci_module
+          cat go.mod
+          echo " go mod is executed"
           go get github.com/opencontainers/umoci
           echo "download is complete"
           #go mod download github.com/opencontainers/umoci@latest
