@@ -64,11 +64,11 @@ jobs:
           #cd $GOPATH/pkg/mod/cache/download/github.com/opencontainers/umoci/
           cd $GOPATH/pkg/mod/
           echo $(ls)
-          cd $GOPATH/pkg/mod/github.com/opencontainers/umoci@v0.4.7/cmd/umoci
+          cd $GOPATH/pkg/mod/github.com/opencontainers/umoci@v0.4.7/
           echo $(ls)
           echo "printing the find path"
-          #make
-          #sudo make install
+          make
+          sudo make install
           echo 'Finished Job of UMOCI'
 
       - name: Run the unit test
