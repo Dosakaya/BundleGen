@@ -48,11 +48,10 @@ jobs:
           cd $GOPATH
           mkdir umoci_module
           echo $(ls)
-          echo "lets print tha go.mod file"
-          echo "printed tha go.mod file"
           go mod init umoci_module
+          echo "lets print tha go.mod file"
           cat go.mod
-          echo " go mod is executed"
+          echo "printed tha go.mod file"
           go get github.com/opencontainers/umoci
           echo "download is complete"
           #go mod download github.com/opencontainers/umoci@latest
