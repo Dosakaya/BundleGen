@@ -46,16 +46,16 @@ jobs:
           go version
           GOPATH=$HOME/go
           cd $GOPATH
-          mkdir umoci_module
+          #mkdir umoci_module
+          echo $GOPATH
           echo $(ls)
-          cd umoci_module
-          go mod init umoci_module
+          #cd umoci_module
+          #go mod init umoci_module
+          go mod init
           echo "lets print tha go.mod file"
           cat go.mod
           echo "printed tha go.mod file"
           go get -d github.com/opencontainers/umoci
-          #go mod download github.com/opencontainers/umoci@latest
-          #find $HOME/ -type d -name "umoci"
           cat go.mod
           echo "download is complete"
           echo $(ls)
