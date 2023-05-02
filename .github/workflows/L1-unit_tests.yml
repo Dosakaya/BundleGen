@@ -53,7 +53,7 @@ jobs:
           echo "lets print tha go.mod file"
           cat go.mod
           echo "printed tha go.mod file"
-          #go get github.com/opencontainers/umoci
+          go get github.com/opencontainers/umoci
           go mod download github.com/opencontainers/umoci@latest
           #find $HOME/ -type d -name "umoci"
           #cd $GOPATH/src/github.com/opencontainers/umoci/
