@@ -49,7 +49,7 @@ jobs:
           mkdir umoci_module
           cd umoci_module
           go mod init umoci_module
-          go get -d github.com/opencontainers/umoci
+          go get -d github.com/opencontainers/umoci@v0.4.7
           cat go.mod
           cd $GOPATH/pkg/mod/github.com/opencontainers/umoci@v0.4.7
           echo $(ls)
