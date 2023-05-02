@@ -51,7 +51,7 @@ jobs:
           echo $(ls)
           #cd umoci_module
           #go mod init umoci_module
-          go mod init
+          go mod init github.com/opencontainers/umoci
           echo "lets print tha go.mod file"
           cat go.mod
           echo "printed tha go.mod file"
