@@ -56,10 +56,11 @@ jobs:
           go get github.com/opencontainers/umoci
           go mod download github.com/opencontainers/umoci@latest
           #find $HOME/ -type d -name "umoci"
-          #cd $GOPATH/src/github.com/opencontainers/umoci/
           #cd $GOPATH/pkg/mod/cache/download/github.com/opencontainers/umoci/
           cat go.mod
           echo "download is complete"
+          echo $(ls)
+          cd $GOPATH/src/github.com/opencontainers/umoci/
           echo $(ls)
           make
           sudo make install
