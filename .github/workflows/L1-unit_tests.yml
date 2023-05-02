@@ -51,6 +51,9 @@ jobs:
           go mod init umoci_module
           go get -d github.com/opencontainers/umoci@v0.4.7
           cat go.mod
+          find $HOME/ -type d -name "apex"
+          cd $GOPATH/pkg/mod/github.com
+          echo $(ls)
           cd $GOPATH/pkg/mod/github.com/opencontainers/umoci@v0.4.7
           echo $(ls)
           make
