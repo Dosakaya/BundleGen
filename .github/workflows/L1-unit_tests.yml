@@ -58,8 +58,8 @@ jobs:
           cp -R $GOPATH/pkg/mod/. .
           echo "printing the src folder after moving"
           echo $(ls)
-          cd $GOPATH/src/github.com/opencontainers/umoci
-          echo "printing inside umoci folder"
+          cd $GOPATH/src/github.com/opencontainers/
+          echo "printing inside opencone folder"
           echo $(ls)
           make
           sudo make install
