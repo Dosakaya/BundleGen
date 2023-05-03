@@ -45,6 +45,7 @@ jobs:
           echo "Printing GO version "
           go version
           GOPATH=$HOME/go
+          go env GO111MODULE=on
           cd $GOPATH
           mkdir umoci_module
           mkdir src
