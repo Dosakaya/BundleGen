@@ -53,15 +53,13 @@ jobs:
           go get -d github.com/opencontainers/umoci@v0.4.7
           cat go.mod
           cd $GOPATH/src/
+          echo "printing the src folder"
           echo $(ls)
           mv $GOPATH/pkg/mod/ .
-          echo $(ls)
-          cd $GOPATH/pkg/mod/github.com
-          echo $(ls)
-          #cd $GOPATH/pkg/mod/github.com/opencontainers/umoci@v0.4.7
-          #cd $GOPATH/pkg/mod/github.com/opencontainers
+          echo "printing the src folder after moving"
           echo $(ls)
           cd $GOPATH/src/github.com/opencontainers/umoci
+          echo "printing inside umoci folder"
           echo $(ls)
           make
           sudo make install
