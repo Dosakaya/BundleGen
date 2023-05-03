@@ -55,6 +55,7 @@ jobs:
           echo "completed the umoci code"
           cd $GOPATH/pkg/mod/github.com/opencontainers/umoci@v0.4.7
           echo " inside theumoci folder"
+          echo $(ls)
           make
           #sudo make install
           echo 'Finished Job of UMOCI'
