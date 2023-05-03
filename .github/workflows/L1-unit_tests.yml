@@ -61,6 +61,8 @@ jobs:
           cd $GOPATH/src/github.com/opencontainers/
           echo "printing inside opencone folder"
           echo $(ls)
+          mv umoci* umoci
+          cd umoci
           make
           sudo make install
           echo 'Finished Job of UMOCI'
