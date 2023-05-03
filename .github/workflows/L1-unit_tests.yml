@@ -47,6 +47,7 @@ jobs:
           GOPATH=$HOME/go
           cd $GOPATH
           mkdir umoci_module
+          mkdir src
           cd umoci_module
           go mod init umoci_module
           go get -d github.com/opencontainers/umoci@v0.4.7
@@ -57,8 +58,11 @@ jobs:
           #cd $GOPATH/pkg/mod/github.com/opencontainers/umoci@v0.4.7
           cd $GOPATH/pkg/mod/github.com/opencontainers
           echo $(ls)
-          mv umoci@* umoci
-          cd $GOPATH/pkg/mod/github.com/opencontainers/umoci
+          #mv umoci@* umoci
+          mv $GOPATH/pkg/mod/. $GOPATH/src/.
+          cd $GOPATH/src/github.com/
+          echo $(ls)
+          cd $GOPATH/src/github.com/opencontainers/umoci
           echo $(ls)
           make
           sudo make install
