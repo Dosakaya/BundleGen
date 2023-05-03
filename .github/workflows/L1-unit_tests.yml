@@ -54,22 +54,9 @@ jobs:
           go install github.com/opencontainers/umoci@v0.4.7
           echo "completed the umoci code"
           cd $GOPATH/pkg/mod/github.com/opencontainers/umoci@v0.4.7
-          echo " inside th eumoci folder"
-          go mod tidy
-          cat go.mod
-          cd $GOPATH/src/
-          echo "printing the src folder"
-          echo $(ls)
-          cp -R $GOPATH/pkg/mod/github.com/ .
-          echo "printing the src folder after moving"
-          echo $(ls)
-          cd $GOPATH/src/github.com/opencontainers/
-          echo "printing inside opencone folder"
-          echo $(ls)
-          mv umoci* umoci
-          cd umoci
+          echo " inside theumoci folder"
           make
-          sudo make install
+          #sudo make install
           echo 'Finished Job of UMOCI'
 
       - name: Run the unit test
