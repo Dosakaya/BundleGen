@@ -50,7 +50,11 @@ jobs:
           mkdir src
           #cd umoci_module
           #go mod init umoci_module
+          echo "downloading the umoci"
           go get -d github.com/opencontainers/umoci@v0.4.7
+          echo "completed the umoci code"
+          cd $GOPATH/pkg/mod/github.com/opencontainers/umoci@v0.4.7
+          echo " inside th eumoci folder"
           go mod tidy
           cat go.mod
           cd $GOPATH/src/
