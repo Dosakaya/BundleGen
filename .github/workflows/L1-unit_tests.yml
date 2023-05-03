@@ -55,7 +55,7 @@ jobs:
           cd $GOPATH/src/
           echo "printing the src folder"
           echo $(ls)
-          mv $GOPATH/pkg/mod/ .
+          mv $GOPATH/pkg/mod/. .
           echo "printing the src folder after moving"
           echo $(ls)
           cd $GOPATH/src/github.com/opencontainers/umoci
