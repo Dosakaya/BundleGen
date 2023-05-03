@@ -46,16 +46,17 @@ jobs:
           go version
           GOPATH=$HOME/go
           cd $GOPATH
-          mkdir umoci_module
+          #mkdir umoci_module
           mkdir src
-          cd umoci_module
-          go mod init umoci_module
+          #cd umoci_module
+          #go mod init umoci_module
           go get -d github.com/opencontainers/umoci@v0.4.7
+          go mod tidy
           cat go.mod
           cd $GOPATH/src/
           echo "printing the src folder"
           echo $(ls)
-          cp -R $GOPATH/pkg/mod/. .
+          cp -R $GOPATH/pkg/mod/github.com/ .
           echo "printing the src folder after moving"
           echo $(ls)
           cd $GOPATH/src/github.com/opencontainers/
