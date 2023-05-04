@@ -55,15 +55,9 @@ jobs:
 
       - name: Run the unit test
         #working-directory: ./Bundlegen/unit_tests/L1_testing
-        working-directory: ./Bundlegen/
+        working-directory: ./Bundlegen/unit_tests/L1_testing
         run: |
-            pwd
-            ls
-            echo "prnting ls"
-            cd unit_tests/L1_testing
-            ls
-            #python run_L1_test.py -c coverage_report
-            python run_L1_test.py
+            python run_L1_test.py -c coverage_report
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
