@@ -19,11 +19,10 @@ import os
 import sys
 import unittest
 import shutil
-
+print(sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 print("printing cwd ")
 print(os.getcwd())
-print(sys.path.insert(0, /home/runner/work/BundleGen/BundleGen/Bundlegen/))
-from unit_tests.L1_testing import get_L1_test_results
+from unit_tests.L1_testing.get_L1_test_results.py import add_test_results
 from bundlegen.core.bundle_processor import BundleProcessor
 
 from bundlegen.core.library_matching import LibraryMatching
