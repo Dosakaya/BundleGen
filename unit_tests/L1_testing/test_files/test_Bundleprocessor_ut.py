@@ -31,10 +31,9 @@ from bundlegen.core.image_downloader import ImageDownloader
 from bundlegen.core.image_unpacker import ImageUnpackager
 from bundlegen.core.utils import Utils
 from bundlegen.core.readelf import ReadElf
-
+from unit_tests.L1_testing import get_L1_test_results
 #This class will test the functionality of API's in bundleprocessor.py file.
 class TestBundleProcessor(unittest.TestCase):
-    '''
     def setUp(self):
          logger.debug("Setup")
          get_L1_test_results.add_test_results.add_tests(self)
@@ -67,7 +66,7 @@ class TestBundleProcessor(unittest.TestCase):
     @classmethod
     def tearDownClass(self):
         get_L1_test_results.add_test_results.end_results(self)
-    '''
+
     def test_process_oci_version(self):
     #When generate_compliant_config: True then it will parse the value of ociversion as 1.0.2
         logger.debug("-->It will parse oci_version as 1.0.2")
