@@ -23,19 +23,12 @@ print("printing cwd ")
 print(os.getcwd())
 
 from bundlegen.core.bundle_processor import BundleProcessor
-
 from bundlegen.core.library_matching import LibraryMatching
 from loguru import logger
 from bundlegen.core.image_downloader import ImageDownloader
 from bundlegen.core.image_unpacker import ImageUnpackager
 from bundlegen.core.utils import Utils
 from bundlegen.core.readelf import ReadElf
-
-#print(sys.path.insert(0, str(pathlib.Path(__file__).parent)))
-#print(sys.path.insert(0, os.path.abspath('../../../unit_tests')))
-#sys.path.insert(0, os.path.abspath('../../..'))
-#print(sys.path)
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import get_L1_test_results
 
 #This class will test the functionality of API's in bundleprocessor.py file.
