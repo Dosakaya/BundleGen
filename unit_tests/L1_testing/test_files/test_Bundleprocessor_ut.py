@@ -23,8 +23,9 @@ import shutil
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 print("printing cwd ")
 print(os.getcwd())
-
-from templates.comcast import xi6
+os.chdir("../../../")
+print("print files in path")
+print(os.listdir())
 from bundlegen.core.bundle_processor import BundleProcessor
 from bundlegen.core.library_matching import LibraryMatching
 from loguru import logger
@@ -35,6 +36,7 @@ from bundlegen.core.readelf import ReadElf
 #from unit_tests.L1_testing import get_L1_test_results
 #This class will test the functionality of API's in bundleprocessor.py file.
 class TestBundleProcessor(unittest.TestCase):
+    '''
     def setUp(self):
          logger.debug("Setup")
          get_L1_test_results.add_test_results.add_tests(self)
@@ -67,7 +69,7 @@ class TestBundleProcessor(unittest.TestCase):
     @classmethod
     def tearDownClass(self):
         get_L1_test_results.add_test_results.end_results(self)
-
+    '''
     def test_process_oci_version(self):
     #When generate_compliant_config: True then it will parse the value of ociversion as 1.0.2
         logger.debug("-->It will parse oci_version as 1.0.2")
