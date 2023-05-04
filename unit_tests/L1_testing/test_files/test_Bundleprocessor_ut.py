@@ -22,7 +22,7 @@ import shutil
 
 print("printing cwd ")
 print(os.getcwd())
-print(sys.path.insert(0, os.path.dirname(../../../unit_tests)))
+print(sys.path.insert(0, ../../../unit_tests))
 from L1_testing import get_L1_test_results
 
 from bundlegen.core.bundle_processor import BundleProcessor
