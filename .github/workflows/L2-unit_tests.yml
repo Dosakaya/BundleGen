@@ -32,9 +32,9 @@ jobs:
              pip install --editable Bundlegen/
 
       - name: Setup umoci
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@v4
         with:
-          go-version: '1.13.12'
+          go-version: '1.20'
           check-latest: true
       - run: |
           sudo apt update
@@ -44,6 +44,7 @@ jobs:
           echo "Printing GO version "
           go version
           GOPATH=$HOME/go
+          cd $GOPATH
           git clone https://github.com/opencontainers/umoci.git
           echo $GOPATH
           cd $GOPATH/umoci/
