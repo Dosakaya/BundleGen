@@ -24,7 +24,10 @@ import sys
 import humanfriendly
 
 from loguru import logger
-from unit_tests.L2_testing import get_L2_test_results
+
+print(sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+import get_L2_test_results
+
 from common import setup_sys_path, TestBase
 setup_sys_path()
 
