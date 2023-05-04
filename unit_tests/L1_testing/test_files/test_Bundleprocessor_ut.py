@@ -31,6 +31,7 @@ from bundlegen.core.image_downloader import ImageDownloader
 from bundlegen.core.image_unpacker import ImageUnpackager
 from bundlegen.core.utils import Utils
 from bundlegen.core.readelf import ReadElf
+import unit_tests
 from unit_tests.L1_testing.get_L1_test_results.py import add_test_results
 
 #This class will test the functionality of API's in bundleprocessor.py file.
