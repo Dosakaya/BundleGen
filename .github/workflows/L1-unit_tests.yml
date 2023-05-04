@@ -47,20 +47,15 @@ jobs:
           GOPATH=$HOME/go
           go env GO111MODULE=on
           cd $GOPATH
-          echo "downloading the umoci"
           git clone https://github.com/opencontainers/umoci.git
-          echo "completed the umoci code"
           cd $GOPATH/umoci
-          echo $(ls)
-          echo " inside theumoci folder"
           make
-          #sudo make install
+          sudo make install
           echo 'Finished Job of UMOCI'
 
       - name: Run the unit test
         working-directory: ./Bundlegen/unit_tests/L1_testing
         run: |
-            echo "====chandu====="
             echo $(pwd)
             #python run_L1_test.py -c coverage_report
             python run_L1_test.py
