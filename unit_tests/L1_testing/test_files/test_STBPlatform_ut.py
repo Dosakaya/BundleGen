@@ -21,10 +21,12 @@ import os
 import sys
 import unittest
 
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from unit_tests.L1_testing import get_L1_test_results
 from bundlegen.core.stb_platform import STBPlatform
 from loguru import logger
+
+sys.path.insert(0, os.path.abspath('../../..'))
+print(sys.path)
+from unit_tests.L1_testing import get_L1_test_results
 
 #This class will test the functionality of API's in stbplatform.py file.
 class TestStbPlatform(unittest.TestCase):
