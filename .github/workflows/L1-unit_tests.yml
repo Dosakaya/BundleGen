@@ -59,7 +59,8 @@ jobs:
         run: |
             pwd
             ls
-            cd unit_tests
+            echo "prnting ls"
+            cd unit_tests/L1_testing
             ls
             #python run_L1_test.py -c coverage_report
             python run_L1_test.py
