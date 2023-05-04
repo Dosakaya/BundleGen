@@ -30,7 +30,7 @@ from bundlegen.core.image_unpacker import ImageUnpackager
 from bundlegen.core.utils import Utils
 from bundlegen.core.readelf import ReadElf
 
-print(sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+print(sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))))
 import get_L1_test_results
 
 #This class will test the functionality of API's in bundleprocessor.py file.
