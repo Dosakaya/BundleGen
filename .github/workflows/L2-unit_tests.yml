@@ -31,6 +31,26 @@ jobs:
       - run: pip install -r Bundlegen/requirements.txt
              pip install --editable Bundlegen/
 
+      - name: Setup umoci
+        uses: actions/setup-go@v3
+        with:
+          go-version: '1.13.12'
+          check-latest: true
+      - run: |
+          sudo apt update
+          sudo apt upgrade
+          sudo apt install -y make git go-md2man
+          # Build/install umoci
+          echo "Printing GO version "
+          go version
+          GOPATH=$HOME/go
+          git clone https://github.com/opencontainers/umoci.git
+          echo $GOPATH
+          cd $GOPATH/umoci/
+          echo $(ls)
+          make
+          sudo make install
+          echo 'Finished Job of UMOCI'
       - name: Run the unit test
         working-directory: ./Bundlegen/unit_tests/L2_testing
         run: |
