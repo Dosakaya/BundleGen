@@ -32,7 +32,7 @@ from bundlegen.core.utils import Utils
 from bundlegen.core.readelf import ReadElf
 
 #print(sys.path.insert(0, str(pathlib.Path(__file__).parent)))
-print(sys.path.insert(0, os.path.abspath('../../unit_tests')))
+print(sys.path.insert(0, os.path.abspath('../../../unit_tests')))
 import unit_tests
 from unit_tests.L1_testing.get_L1_test_results.py import add_test_results
 
