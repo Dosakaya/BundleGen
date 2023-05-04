@@ -48,12 +48,12 @@ jobs:
           go env GO111MODULE=on
           cd $GOPATH
           mkdir umoci_module
-          mkdir src
-          #cd umoci_module
-          #go mod init umoci_module
+          #mkdir src
+          cd umoci_module
+          go mod init umoci_module
           echo "downloading the umoci"
-          #go get -d github.com/opencontainers/umoci@v0.4.7
-          go install github.com/opencontainers/umoci@latest
+          go get -d github.com/opencontainers/umoci@latest
+          #go install github.com/opencontainers/umoci@latest
           echo "completed the umoci code"
           cd $GOPATH/pkg/mod/github.com/opencontainers/umoci@v0.4.7
           echo " inside theumoci folder"
