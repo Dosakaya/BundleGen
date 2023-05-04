@@ -55,6 +55,8 @@ jobs:
           go get -d github.com/opencontainers/umoci@latest
           #go install github.com/opencontainers/umoci@latest
           echo "completed the umoci code"
+          cd $GOPATH/
+          echo $(ls)
           cd $GOPATH/pkg/mod/github.com/opencontainers/umoci@v0.4.7
           echo " inside theumoci folder"
           echo $(ls)
