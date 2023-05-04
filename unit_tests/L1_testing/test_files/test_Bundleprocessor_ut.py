@@ -21,8 +21,8 @@ import unittest
 import shutil
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from unit_tests.L1_testing import get_L1_test_results
-from bundlegen.core.bundle_processor import BundleProcessor
+#from unit_tests.L1_testing import get_L1_test_results
+from bundlegens.core.bundle_processor import BundleProcessor
 from bundlegen.core.library_matching import LibraryMatching
 from loguru import logger
 from bundlegen.core.image_downloader import ImageDownloader
