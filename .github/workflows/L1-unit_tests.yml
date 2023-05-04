@@ -54,9 +54,13 @@ jobs:
           echo 'Finished Job of UMOCI'
 
       - name: Run the unit test
-        working-directory: ./Bundlegen/unit_tests/L1_testing
+        #working-directory: ./Bundlegen/unit_tests/L1_testing
+        working-directory: ./Bundlegen/
         run: |
-            echo $(pwd)
+            pwd
+            ls
+            cd unit_tests
+            ls
             #python run_L1_test.py -c coverage_report
             python run_L1_test.py
 
